@@ -31,7 +31,7 @@ const facilities = [
   {
     icon: Waves,
     title: "Swimming Pool",
-    subtitle: "Crystal Clear Paradise",
+    subtitle: "Elite Fitness Experience",
     image:
       "https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?w=800&q=80",
     pricing: [
@@ -67,10 +67,10 @@ const facilities = [
   },
   {
     icon: Target,
-    title: "Tennis Meja",
-    subtitle: "Indoor Table Tennis",
+    title: "Table Tennis",
+    subtitle: "Professional Indoor Courts",
     image:
-      "https://images.unsplash.com/photo-1611251135345-18c56206b863?w=800&q=80",
+      "https://images.unsplash.com/photo-1708268418738-4863baa9cf72?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dGFibGUlMjB0ZW5uaXN8ZW58MHx8MHx8fDA%3D",
     pricing: [{ type: "Court Rental", price: "Rp35.000", period: "/jam" }],
     features: [
       "Professional Table",
@@ -84,7 +84,7 @@ const facilities = [
   {
     icon: Trophy,
     title: "Tennis Court",
-    subtitle: "Outdoor Excellence",
+    subtitle: "Professional Indoor Courts",
     image:
       "https://images.unsplash.com/flagged/photo-1576972405668-2d020a01cbfa?q=80&w=1174&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     pricing: [

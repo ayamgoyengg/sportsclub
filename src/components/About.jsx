@@ -1,36 +1,36 @@
 import { motion } from 'framer-motion';
-import { Dumbbell, Users, Heart, Award, Zap, Shield, Clock } from 'lucide-react';
+import { Dumbbell, Users, Heart, Award, Zap, Shield, Waves } from 'lucide-react';
 
 const highlights = [
   {
     icon: Dumbbell,
-    title: 'Professional Equipment',
-    description: 'State-of-the-art fitness equipment for optimal training experience',
+    title: 'Premium Equipment',
+    description: 'World-class fitness equipment, well-maintained and regularly updated to support your best performance.',
   },
   {
     icon: Shield,
     title: 'Certified Trainers',
-    description: 'Professional trainers certified to guide your fitness journey',
+    description: 'Certified professional trainers ready to help you hit your fitness goals with a tailored program.',
   },
   {
     icon: Heart,
     title: 'Family Friendly',
-    description: 'Perfect environment designed for families and all age groups',
+    description: 'A welcoming environment built for the whole family — from kids to adults, everyone fits in.',
   },
   {
-    icon: Clock,
-    title: '24/7 Access',
-    description: 'Round-the-clock access to premium facilities and services',
+    icon: Waves,
+    title: 'Swimming Pool',
+    description: 'Clean, well-maintained pool with dedicated lanes for children and adults, supervised by trained lifeguards.',
   },
   {
     icon: Users,
-    title: 'Community Focus',
-    description: 'Building a strong community of health-conscious individuals',
+    title: 'Active Community',
+    description: 'Join thousands of active members who motivate and support each other on their fitness journey.',
   },
   {
     icon: Zap,
-    title: 'Modern Amenities',
-    description: 'Latest technology and comfort features for premium experience',
+    title: 'Variety Classes',
+    description: 'A wide range of fitness classes — yoga, zumba, HIIT, and more — led by experienced instructors.',
   },
 ];
 
