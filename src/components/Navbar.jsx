@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import logo from "../assets/logo.png";
 
@@ -40,7 +40,7 @@ const Navbar = ({ scrollY }) => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-white hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300"
+                  className="text-white hover:text-orange-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300"
                 >
                   {item.name}
                 </a>
@@ -50,38 +50,42 @@ const Navbar = ({ scrollY }) => {
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <button
+            <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white hover:text-primary p-2"
+              className="text-white p-2 rounded-lg hover:bg-white/10 transition-all"
+              whileTap={{ scale: 0.95 }}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <motion.div
-          className="md:hidden bg-dark/95 backdrop-blur-md"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-        >
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-white hover:text-primary block px-3 py-2 rounded-md text-base font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.name}
-              </a>
-            ))}
-          </div>
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="md:hidden bg-dark/95 backdrop-blur-sm border-t border-white/5"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-white hover:text-orange-400 hover:bg-white/5 block px-3 py-2 rounded-md text-base transition-all duration-300"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 };
