@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Marquee from './components/Marquee';
 import About from './components/About';
 import Facilities from './components/Facilities';
 import Testimonials from './components/Testimonials';
@@ -24,6 +25,7 @@ function App() {
     <div className="min-h-screen bg-dark overflow-x-hidden">
       <Navbar scrollY={scrollY} />
       <Hero />
+      <Marquee />
       <About />
       <Facilities />
       <Testimonials />
