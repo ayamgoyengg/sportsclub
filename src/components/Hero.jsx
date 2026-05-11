@@ -143,9 +143,9 @@ const HeroMobile = () => (
           className="hero-serif text-white leading-none select-none text-center"
           style={{ fontSize: 'clamp(52px, 14vw, 90px)', fontWeight: 400, letterSpacing: '0.02em', lineHeight: 0.95 }}
         >
-          <div style={{ opacity: 0.6 }}>Level Up</div>
-          <div>Your Fitness</div>
-          <div>Journey</div>
+          <div style={{ opacity: 0.6 }}>Train</div>
+          <div>Like An</div>
+          <div>Athlete.</div>
         </h1>
       </motion.div>
     </div>
