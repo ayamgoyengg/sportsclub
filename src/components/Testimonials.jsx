@@ -1,55 +1,66 @@
 import { motion } from 'framer-motion';
-import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useState } from 'react';
+import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto-slide every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, []);
 
   const testimonials = [
     {
       id: 1,
       name: 'Ahmad Rahman',
-      role: 'Regular Member',
+      role: 'Member 4 tahun',
       rating: 5,
-      review: 'Exceptional facilities with world-class equipment. The trainers are highly professional and the environment is perfect for serious fitness enthusiasts. Highly recommended!',
-      avatar: 'AR',
-      gradient: 'from-primary to-secondary'
+      review: 'Dulu badanku gendut, sekarang udah langsing. Trainer di sini sabar banget ngajarin. Tempatnya bersih dan alat-alatnya lengkap. Worth it!',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&q=80&fit=crop',
+      gradient: 'from-orange-500 to-red-500'
     },
     {
       id: 2,
       name: 'Siti Nurhaliza',
-      role: 'Gold Member',
+      role: 'Member 1 tahun',
       rating: 5,
-      review: 'Perfect family destination! My kids absolutely love the swimming pool area, and I enjoy the comprehensive gym facilities. The staff is incredibly friendly and attentive.',
-      avatar: 'SN',
-      gradient: 'from-secondary to-primary'
+      review: 'Kolam renangnya aman banget untuk anak-anak. Pegawainya ramah, fasilitasnya bagus. Keluarga saya selalu excited hari Sabtu untuk kesini.',
+      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=500&q=80&fit=crop',
+      gradient: 'from-pink-500 to-rose-500'
     },
     {
       id: 3,
       name: 'Budi Santoso',
-      role: 'Tennis Enthusiast',
+      role: 'Pemain Badminton',
       rating: 5,
-      review: 'The tennis courts are professionally maintained with excellent lighting for evening games. The surface quality is comparable to international standards.',
-      avatar: 'BS',
+      review: 'Lapangan badminton di sini terbaik yang pernah saya main. Terang, luas, dan maintainnya teratur. Sering ngadain turnamen juga, seru!',
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=500&q=80&fit=crop',
       gradient: 'from-blue-500 to-cyan-500'
     },
     {
       id: 4,
       name: 'Maya Sari',
-      role: 'Fitness Trainer',
+      role: 'Personal Trainer',
       rating: 5,
-      review: 'As a professional trainer, I appreciate the quality equipment and clean environment. This club sets the standard for premium fitness facilities in the region.',
-      avatar: 'MS',
-      gradient: 'from-green-500 to-emerald-500'
+      review: 'Sebagai trainer, aku approve banget tempat ini. Peralatan standard internasional, bersih, AC dingin. Member puas, trainer juga puas!',
+      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&h=500&q=80&fit=crop',
+      gradient: 'from-purple-500 to-pink-500'
     },
     {
       id: 5,
       name: 'Rizky Pratama',
-      role: 'Badminton Player',
+      role: 'Pemain Tenis Profesional',
       rating: 5,
-      review: 'The indoor badminton courts are fantastic with premium lighting and professional flooring. Perfect for competitive play and training sessions.',
-      avatar: 'RP',
-      gradient: 'from-purple-500 to-pink-500'
+      review: 'Court tennisnya super mantap. Permukaannya bagus, maintenance teratur, dan ada lights untuk main malam. Best spot di area ini!',
+      image: 'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      gradient: 'from-green-500 to-emerald-500'
     }
   ];
 
@@ -150,52 +161,78 @@ const Testimonials = () => {
         </div>
 
         {/* Main Testimonial Display */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <motion.div
             key={currentTestimonial.id}
-            className="relative bg-white/5 backdrop-blur-sm border border-white/10 p-8 sm:p-12 rounded-2xl"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+            className="relative overflow-hidden rounded-3xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            {/* Background gradient */}
-            <div className={`absolute inset-0 bg-gradient-to-br ${currentTestimonial.gradient} opacity-5 rounded-2xl`}></div>
+            {/* Background with gradient overlay */}
+            <div
+              className={`absolute inset-0 bg-gradient-to-br ${currentTestimonial.gradient} opacity-10`}
+            />
+            
+            {/* Main Content - Flexbox layout */}
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center p-8 sm:p-12 bg-white/5 backdrop-blur-sm border border-white/10">
+              {/* Left: Member Photo */}
+              <motion.div
+                className="flex justify-center md:justify-start"
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="w-full max-w-xs aspect-square rounded-2xl overflow-hidden shadow-2xl border border-white/20">
+                  <img
+                    src={currentTestimonial.image}
+                    alt={currentTestimonial.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.div>
 
-            {/* Quote Icon */}
-            <div className="relative z-10 flex justify-center mb-8">
-              <div className={`p-4 bg-gradient-to-br ${currentTestimonial.gradient} rounded-2xl`}>
-                <Quote className="w-8 h-8 text-white" />
-              </div>
-            </div>
+              {/* Right: Review Content */}
+              <motion.div
+                className="flex flex-col justify-center"
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                {/* Rating */}
+                <div className="flex gap-1 mb-6">
+                  {[...Array(currentTestimonial.rating)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: 0.2 + i * 0.08 }}
+                    >
+                      <Star className="w-5 h-5 text-yellow-400 fill-current" />
+                    </motion.div>
+                  ))}
+                </div>
 
-            {/* Rating */}
-            <div className="relative z-10 flex justify-center mb-6">
-              {[...Array(currentTestimonial.rating)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: i * 0.1 }}
-                >
-                  <Star className="w-6 h-6 text-yellow-400 fill-current mx-1" />
-                </motion.div>
-              ))}
-            </div>
+                {/* Review Quote */}
+                <blockquote className="mb-6">
+                  <p className="test-sans text-lg sm:text-2xl text-white font-light leading-relaxed">
+                    "{currentTestimonial.review}"
+                  </p>
+                </blockquote>
 
-            {/* Review */}
-            <blockquote className="relative z-10 text-center mb-8">
-              <p className="test-sans text-xl sm:text-2xl text-white font-light leading-relaxed italic">
-                "{currentTestimonial.review}"
-              </p>
-            </blockquote>
+                {/* Divider */}
+                <div className="h-px bg-gradient-to-r from-orange-500 to-transparent w-12 mb-6" />
 
-            {/* Author */}
-            <div className="relative z-10 text-center">
-              <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${currentTestimonial.gradient} rounded-full text-white font-bold text-xl mb-4`}>
-                {currentTestimonial.avatar}
-              </div>
-              <h4 className="test-sans text-xl font-bold text-white mb-1">{currentTestimonial.name}</h4>
-              <p className="test-sans text-white/60">{currentTestimonial.role}</p>
+                {/* Author Info */}
+                <div>
+                  <h4 className="test-sans text-lg font-bold text-white mb-1">
+                    {currentTestimonial.name}
+                  </h4>
+                  <p className="test-sans text-white/70 text-sm">
+                    {currentTestimonial.role}
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
 
@@ -235,98 +272,6 @@ const Testimonials = () => {
             </motion.button>
           </div>
         </div>
-
-        {/* Before vs After Member Experiences */}
-        <motion.div
-          className="mt-20"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          {/* Section label */}
-          <motion.div
-            className="test-sans flex items-center gap-3 mb-12 justify-center"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <div className="h-px w-8 bg-orange-500" />
-            <span className="text-[11px] font-medium tracking-[0.22em] uppercase text-orange-400">
-              Before vs After
-            </span>
-            <div className="h-px w-8 bg-orange-500" />
-          </motion.div>
-
-          {/* Experiences Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80',
-                quote: 'Turun 12kg dalam 4 bulan',
-                name: 'Sarah Putri',
-                transformation: 'Dari 78kg menjadi 66kg dengan program gym rutin di Sports Club PTI'
-              },
-              {
-                image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&q=80',
-                quote: 'Sekarang rutin olahraga tiap pagi',
-                name: 'Ahmad Rahman',
-                transformation: 'Awalnya malas berolahraga menjadi aktif dan disiplin'
-              },
-              {
-                image: 'https://plus.unsplash.com/premium_photo-1664910607414-6e5eb86a9dfe?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z3ltJTIwZ2lybHxlbnwwfHwwfHx8MA%3D%3D',
-                quote: 'Lebih percaya diri setelah join',
-                name: 'Maya Sari',
-                transformation: 'Dari minder dengan tubuhnya menjadi confident dan energik'
-              }
-            ].map((experience, index) => (
-              <motion.div
-                key={experience.name}
-                className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-300"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-              >
-                {/* Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={experience.image}
-                    alt={`${experience.name} transformation`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <blockquote className="test-sans text-lg font-medium text-white mb-3 italic">
-                    "{experience.quote}"
-                  </blockquote>
-
-                  <div className="mb-4">
-                    <h4 className="test-sans text-white font-semibold text-base mb-1">
-                      {experience.name}
-                    </h4>
-                    <p className="test-sans text-white/70 text-sm leading-relaxed">
-                      {experience.transformation}
-                    </p>
-                  </div>
-
-                  {/* Transformation indicator */}
-                  <div className="flex items-center gap-2">
-                    <div className="h-px w-4 bg-orange-500" />
-                    <span className="test-sans text-xs font-medium text-orange-400 uppercase tracking-wide">
-                      Real Results
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );
