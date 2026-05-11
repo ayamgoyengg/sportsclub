@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-dark text-white font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer components {
+  .glassmorphism {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+
+  .glassmorphism-strong {
+    @apply bg-white/15 backdrop-blur-lg border border-white/30 shadow-xl;
+  }
+
+  .gradient-glow {
+    background: linear-gradient(135deg, #FF7223, #FFA52F);
+    box-shadow: 0 0 20px rgba(255, 114, 35, 0.3);
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25;
+  }
+
+  .btn-secondary {
+    @apply bg-white/10 hover:bg-white/20 text-white font-bold py-4 px-8 rounded-2xl border border-white/30 backdrop-blur-sm transition-all duration-300 hover:scale-105;
+  }
+
+  .card-hover {
+    @apply hover:scale-105 hover:-translate-y-2 transition-all duration-500;
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 20px rgba(255, 114, 35, 0.3); }
+  to { box-shadow: 0 0 30px rgba(255, 114, 35, 0.6); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark2;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/70;
+}
+
+/* Selection styling */
+::selection {
+  @apply bg-primary/30 text-white;
+}
+
+/* Focus styles */
+.focus-ring:focus {
+  @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-dark;
+}
