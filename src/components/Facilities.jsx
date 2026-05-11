@@ -21,10 +21,10 @@ const facilities = [
     ],
     features: [
       "Fitness",
-      "Variasi Kelas",
+      "Variety Class",
       "Sauna",
-      "Berenang",
-      "Personal Training",
+      "Swimming Pool",
+      "Locker Rooms",
     ],
     whatsappMessage: "Halo min, saya ingin bertanya mengenai membership Gym",
   },
