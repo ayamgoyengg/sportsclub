@@ -1,20 +1,23 @@
-import { motion } from 'framer-motion';
-import { Facebook, Instagram, Twitter } from 'lucide-react';
-import logo from '../assets/logo.png';
+import { motion } from "framer-motion";
+import { Facebook, Instagram } from "lucide-react";
+import logo from "../assets/logo.png";
 
 const Footer = () => {
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Facilities', href: '#facilities' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' }
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Facilities", href: "#facilities" },
+    { name: "Testimonials", href: "#testimonials" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
     <footer
       className="relative overflow-hidden"
-      style={{ background: 'linear-gradient(160deg, #0e0600 0%, #2a0e00 50%, #1a0a00 100%)' }}
+      style={{
+        background:
+          "linear-gradient(160deg, #0e0600 0%, #2a0e00 50%, #1a0a00 100%)",
+      }}
     >
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap');
@@ -34,12 +37,12 @@ const Footer = () => {
       <div
         className="absolute right-0 top-0 bottom-0 w-[3px] z-30 pointer-events-none"
         style={{
-          background: 'linear-gradient(to bottom, transparent 0%, #f97316 35%, #c2410c 75%, transparent 100%)',
+          background:
+            "linear-gradient(to bottom, transparent 0%, #f97316 35%, #c2410c 75%, transparent 100%)",
         }}
       />
 
       <div className="relative z-10 pt-24 pb-16 px-5 lg:px-10">
-
         {/* ── Section label ── */}
         <motion.div
           className="footer-sans flex items-center gap-3 mb-10"
@@ -56,14 +59,13 @@ const Footer = () => {
 
         {/* Two-column: big heading left + description right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-20">
-
           {/* Left — large serif heading */}
           <motion.h2
             className="footer-serif text-white leading-none"
             style={{
-              fontSize: 'clamp(48px, 7vw, 110px)',
+              fontSize: "clamp(48px, 7vw, 110px)",
               fontWeight: 400,
-              letterSpacing: '0.02em',
+              letterSpacing: "0.02em",
               lineHeight: 0.95,
             }}
             initial={{ opacity: 0, y: 40 }}
@@ -80,20 +82,21 @@ const Footer = () => {
           {/* Right — description */}
           <motion.div
             className="footer-sans text-white/80 leading-relaxed"
-            style={{ fontSize: '18px', lineHeight: 1.6 }}
+            style={{ fontSize: "18px", lineHeight: 1.6 }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true }}
           >
             <p className="mb-6">
-              Join our community of fitness enthusiasts. Follow us on social media for the latest updates, special offers, and inspiring fitness content.
+              Join our community of fitness enthusiasts. Follow us on social
+              media for the latest updates, special offers, and inspiring
+              fitness content.
             </p>
           </motion.div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
-
           {/* Logo and Social Media */}
           <motion.div
             className="col-span-1 md:col-span-2"
@@ -103,7 +106,11 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center gap-4 mb-4">
-              <img src={logo} alt="Sports Club PTI Logo" className="h-14 w-auto object-contain rounded-lg bg-white/10 p-2" />
+              <img
+                src={logo}
+                alt="Sports Club PTI Logo"
+                className="h-14 w-auto object-contain rounded-lg bg-white/10 p-2"
+              />
               <h3 className="footer-serif text-2xl font-bold text-orange-400">
                 Sports Club PTI
               </h3>
@@ -114,7 +121,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <motion.a
-                href="#"
+                href="https://www.facebook.com/61587411177342/"
                 className="p-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20 transition-all duration-300 hover:scale-110"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
@@ -122,20 +129,12 @@ const Footer = () => {
                 <Facebook className="w-5 h-5 text-white" />
               </motion.a>
               <motion.a
-                href="#"
+                href="https://www.instagram.com/pti_sportsclub/"
                 className="p-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20 transition-all duration-300 hover:scale-110"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
                 <Instagram className="w-5 h-5 text-white" />
-              </motion.a>
-              <motion.a
-                href="#"
-                className="p-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20 transition-all duration-300 hover:scale-110"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <Twitter className="w-5 h-5 text-white" />
               </motion.a>
             </div>
           </motion.div>
@@ -147,7 +146,9 @@ const Footer = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h4 className="footer-sans text-lg font-semibold text-white mb-6">Quick Links</h4>
+            <h4 className="footer-sans text-lg font-semibold text-white mb-6">
+              Quick Links
+            </h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -169,12 +170,12 @@ const Footer = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <h4 className="footer-sans text-lg font-semibold text-white mb-6">Contact Info</h4>
+            <h4 className="footer-sans text-lg font-semibold text-white mb-6">
+              Contact Info
+            </h4>
             <div className="footer-sans space-y-3 text-white/70">
               <p>Pondok Tjandra Indah</p>
-              <p>Sidoarjo</p>
-              <p>+62 8xx-xxxx-xxxx</p>
-              <p>info@sportsclubpti.com</p>
+              <p>+62 878-9622-2233</p>
             </div>
           </motion.div>
         </div>

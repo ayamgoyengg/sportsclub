@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const WhatsAppButton = () => {
   const handleClick = () => {
-    const phoneNumber = '6281901112752'; // Replace with actual number
+    const phoneNumber = '6287896222233'; // Replace with actual number
     const message = 'Halo min, saya ingin bertanya mengenai Sports Club Pondok Tjandra Indah';
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');

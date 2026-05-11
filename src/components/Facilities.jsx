@@ -51,7 +51,7 @@ const facilities = [
 ];
 
 const handleWhatsAppClick = (message) => {
-  const phoneNumber = '6281901112752';
+  const phoneNumber = '6287896222233';
   window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
 };
 
