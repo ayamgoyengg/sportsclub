@@ -1,58 +1,132 @@
-import { motion } from 'framer-motion';
-import { Dumbbell, Waves, Zap, Target, ArrowUpRight } from 'lucide-react';
+import { motion } from "framer-motion";
+import {
+  Dumbbell,
+  Waves,
+  Zap,
+  Target,
+  Trophy,
+  ArrowUpRight,
+} from "lucide-react";
 
 const facilities = [
   {
     icon: Dumbbell,
-    title: 'Premium Gym',
-    subtitle: 'Elite Fitness Experience',
-    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80',
+    title: "Premium Gym",
+    subtitle: "Elite Fitness Experience",
+    image:
+      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80",
     pricing: [
-      { type: 'Student Membership', price: 'Rp340.000', period: '/month' },
-      { type: 'Gold Membership', price: 'Rp400.000', period: '/month', popular: true },
+      { type: "Gold Membership", price: "Rp425.000", period: "/bulan" },
+      { type: "Student Membership", price: "Rp340.000", period: "/bulan" },
     ],
-    features: ['Weight Training Zone', 'Cardio Area', 'Recovery Zone', 'Personal Training', 'Nutrition Guidance'],
-    whatsappMessage: 'Halo min, saya ingin bertanya mengenai membership Gym',
+    features: [
+      "Fitness",
+      "Variasi Kelas",
+      "Sauna",
+      "Berenang",
+      "Personal Training",
+    ],
+    whatsappMessage: "Halo min, saya ingin bertanya mengenai membership Gym",
   },
   {
     icon: Waves,
-    title: 'Swimming Pool',
-    subtitle: 'Crystal Clear Paradise',
-    image: 'https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?w=800&q=80',
+    title: "Swimming Pool",
+    subtitle: "Crystal Clear Paradise",
+    image:
+      "https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?w=800&q=80",
     pricing: [
-      { type: 'Kids', price: 'Rp35.000', period: '/visit' },
-      { type: 'Adult', price: 'Rp50.000', period: '/visit' },
+      { type: "Anak Weekday", price: "Rp40.000", period: "/visit" },
+      { type: "Anak Weekend", price: "Rp45.000", period: "/visit" },
+      { type: "Dewasa Weekday", price: "Rp45.000", period: "/visit" },
+      { type: "Dewasa Weekend", price: "Rp50.000", period: "/visit" },
     ],
-    features: ['Temperature Controlled', 'Kids Play Area', 'Water Slides', 'Life Guards', 'Changing Rooms'],
-    whatsappMessage: 'Halo min, saya ingin bertanya mengenai tiket Renang',
+    features: [
+      "Temperature Controlled",
+      "Kids Play Area",
+      "Water Slides",
+      "Life Guards",
+      "Changing Rooms",
+    ],
+    whatsappMessage: "Halo min, saya ingin bertanya mengenai tiket Renang",
   },
   {
     icon: Zap,
-    title: 'Badminton Court',
-    subtitle: 'Professional Indoor Courts',
-    image: 'https://media.istockphoto.com/id/1192023529/photo/asian-badminton-player-is-hitting-in-court.webp?a=1&b=1&s=612x612&w=0&k=20&c=oGIRBPR1-s0Jc58WmCOoyW56bcGm2J_je-JiabHB8_o=',
-    pricing: [
-      { type: 'Court Rental', price: 'Rp60.000', period: '/hour' },
+    title: "Badminton",
+    subtitle: "Professional Indoor Courts",
+    image:
+      "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmFkbWludG9ufGVufDB8fDB8fHww",
+    pricing: [{ type: "Court Rental", price: "Rp80.000", period: "/jam" }],
+    features: [
+      "Premium Lighting",
+      "Rubber Flooring",
+      "Equipment Rental",
+      "Pro Shop",
+      "Tournament Ready",
     ],
-    features: ['Premium Lighting', 'Rubber Flooring', 'Equipment Rental', 'Pro Shop', 'Tournament Ready'],
-    whatsappMessage: 'Halo min, saya ingin booking Lapangan Badminton',
+    whatsappMessage: "Halo min, saya ingin booking lapangan Badminton",
   },
   {
     icon: Target,
-    title: 'Tennis Court',
-    subtitle: 'Outdoor Excellence',
-    image: 'https://images.unsplash.com/photo-1620742820748-87c09249a72a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dGVubmlzJTIwY291cnR8ZW58MHx8MHx8fDA%3D',
-    pricing: [
-      { type: 'Court Rental', price: 'Rp100.000', period: '/hour' },
+    title: "Tennis Meja",
+    subtitle: "Indoor Table Tennis",
+    image:
+      "https://images.unsplash.com/photo-1611251135345-18c56206b863?w=800&q=80",
+    pricing: [{ type: "Court Rental", price: "Rp35.000", period: "/jam" }],
+    features: [
+      "Professional Table",
+      "Equipment Provided",
+      "Air Conditioned",
+      "Open Daily",
+      "All Skill Levels",
     ],
-    features: ['Clay Surface', 'Night Lighting', 'Equipment Rental', 'Coaching Available', 'Tournament Standard'],
-    whatsappMessage: 'Halo min, saya ingin booking Lapangan Tenis',
+    whatsappMessage: "Halo min, saya ingin booking Tennis Meja",
+  },
+  {
+    icon: Trophy,
+    title: "Tennis Court",
+    subtitle: "Outdoor Excellence",
+    image:
+      "https://images.unsplash.com/flagged/photo-1576972405668-2d020a01cbfa?q=80&w=1174&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    pricing: [
+      { type: "Siang", price: "Rp80.000", period: "/jam" },
+      { type: "Malam", price: "Rp90.000", period: "/jam" },
+    ],
+    features: [
+      "Clay Surface",
+      "Night Lighting",
+      "Equipment Rental",
+      "Coaching Available",
+      "Tournament Standard",
+    ],
+    whatsappMessage: "Halo min, saya ingin booking Lapangan Tenis",
+  },
+  {
+    icon: Dumbbell,
+    title: "Personal Trainer",
+    subtitle: "Professional Coaching",
+    image:
+      "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80",
+    pricing: [
+      { type: "8 Sesi", price: "Rp1.500.000", period: "" },
+      { type: "12 Sesi", price: "Rp2.000.000", period: "" },
+    ],
+    features: [
+      "Certified Trainer",
+      "Custom Program",
+      "Progress Tracking",
+      "Nutrition Guide",
+      "Flexible Schedule",
+    ],
+    whatsappMessage: "Halo min, saya ingin bertanya mengenai Personal Trainer",
   },
 ];
 
 const handleWhatsAppClick = (message) => {
-  const phoneNumber = '6287896222233';
-  window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+  const phoneNumber = "6287896222233";
+  window.open(
+    `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`,
+    "_blank",
+  );
 };
 
 const Facilities = () => {
@@ -60,7 +134,10 @@ const Facilities = () => {
     <section
       id="facilities"
       className="relative overflow-hidden"
-      style={{ background: 'linear-gradient(160deg, #0e0600 0%, #2a0e00 50%, #1a0a00 100%)' }}
+      style={{
+        background:
+          "linear-gradient(160deg, #0e0600 0%, #2a0e00 50%, #1a0a00 100%)",
+      }}
     >
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap');
@@ -80,13 +157,13 @@ const Facilities = () => {
       <div
         className="absolute right-0 top-0 bottom-0 w-[3px] z-30 pointer-events-none"
         style={{
-          background: 'linear-gradient(to bottom, transparent 0%, #f97316 35%, #c2410c 75%, transparent 100%)',
+          background:
+            "linear-gradient(to bottom, transparent 0%, #f97316 35%, #c2410c 75%, transparent 100%)",
         }}
       />
 
       <div className="relative z-10 pt-24 pb-16 px-5 lg:px-10">
-
-        {/* ── Section label ── */}
+        {/* Section label */}
         <motion.div
           className="fac-sans flex items-center gap-3 mb-10"
           initial={{ opacity: 0, y: 16 }}
@@ -100,14 +177,14 @@ const Facilities = () => {
           </span>
         </motion.div>
 
-        {/* ── Heading + body text ── */}
+        {/* Heading + body text */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end mb-20">
           <motion.h2
             className="fac-serif text-white leading-none"
             style={{
-              fontSize: 'clamp(48px, 7vw, 110px)',
+              fontSize: "clamp(48px, 7vw, 110px)",
               fontWeight: 400,
-              letterSpacing: '0.02em',
+              letterSpacing: "0.02em",
               lineHeight: 0.95,
             }}
             initial={{ opacity: 0, y: 40 }}
@@ -121,10 +198,10 @@ const Facilities = () => {
             <br />
             <span
               style={{
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundImage: 'linear-gradient(90deg, #f97316, #ea580c)',
-                backgroundClip: 'text',
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundImage: "linear-gradient(90deg, #f97316, #ea580c)",
+                backgroundClip: "text",
               }}
             >
               Facilities
@@ -139,19 +216,23 @@ const Facilities = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-start gap-3 mb-4">
-              <span className="text-orange-400/60 text-xs mt-1 select-none" style={{ fontFamily: 'monospace' }}>
+              <span
+                className="text-orange-400/60 text-xs mt-1 select-none"
+                style={{ fontFamily: "monospace" }}
+              >
                 [↓]
               </span>
               <p className="text-white/70 text-sm leading-relaxed font-light">
-                Discover our premium sports facilities designed for athletes of all levels.
-                Experience excellence in every court, pool, and training space.
+                Discover our premium sports facilities designed for athletes of
+                all levels. Experience excellence in every court, pool, and
+                training space.
               </p>
             </div>
             <div className="h-px bg-white/10" />
           </motion.div>
         </div>
 
-        {/* ── Facilities grid ── */}
+        {/* Facilities grid — 2 cols, 6 cards = 3 rows */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-white/[0.06]">
           {facilities.map((facility, index) => (
             <motion.div
@@ -159,68 +240,88 @@ const Facilities = () => {
               className="fac-sans group relative bg-transparent hover:bg-white/[0.03] transition-colors duration-500"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: index * 0.07 }}
               viewport={{ once: true }}
             >
-              {/* Image — full width, 16:9 */}
-              <div className="relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
+              {/* Image */}
+              <div
+                className="relative overflow-hidden"
+                style={{ aspectRatio: "16/9" }}
+              >
                 <img
                   src={facility.image}
                   alt={facility.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  style={{ filter: 'saturate(0.6) brightness(0.8)' }}
+                  style={{ filter: "saturate(0.6) brightness(0.8)" }}
                 />
                 <div
                   className="absolute inset-0"
                   style={{
-                    background: 'linear-gradient(to top, rgba(10,4,0,0.85) 0%, rgba(10,4,0,0.2) 50%, transparent 100%)',
+                    background:
+                      "linear-gradient(to top, rgba(10,4,0,0.85) 0%, rgba(10,4,0,0.2) 50%, transparent 100%)",
                   }}
                 />
-                {/* Icon + title overlaid on image */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 flex items-end justify-between">
-                  <div>
-                    <facility.icon className="w-5 h-5 text-orange-400 mb-2" strokeWidth={1.5} />
-                    <h3
-                      className="fac-serif text-white"
-                      style={{ fontSize: 'clamp(26px, 3vw, 42px)', fontWeight: 400, lineHeight: 1 }}
-                    >
-                      {facility.title}
-                    </h3>
-                    <p className="text-white/50 text-xs tracking-widest uppercase mt-1">{facility.subtitle}</p>
-                  </div>
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <facility.icon
+                    className="w-5 h-5 text-orange-400 mb-2"
+                    strokeWidth={1.5}
+                  />
+                  <h3
+                    className="fac-serif text-white"
+                    style={{
+                      fontSize: "clamp(26px, 3vw, 42px)",
+                      fontWeight: 400,
+                      lineHeight: 1,
+                    }}
+                  >
+                    {facility.title}
+                  </h3>
+                  <p className="text-white/50 text-xs tracking-widest uppercase mt-1">
+                    {facility.subtitle}
+                  </p>
                 </div>
               </div>
 
               {/* Card body */}
               <div className="p-6 lg:p-8">
-
-                {/* Pricing row */}
-                <div className="flex gap-4 mb-6 flex-wrap">
+                {/* Pricing */}
+                <div className="flex gap-4 mb-4 flex-wrap">
                   {facility.pricing.map((price, idx) => (
-                    <div key={idx} className="flex-1 min-w-[120px]">
-                      <p className="text-white/35 text-[10px] uppercase tracking-[0.15em] mb-1">{price.type}</p>
+                    <div key={idx} className="flex-1 min-w-[110px]">
+                      <p className="text-white/35 text-[10px] uppercase tracking-[0.15em] mb-1">
+                        {price.type}
+                      </p>
                       <div className="flex items-baseline gap-1">
                         <span
                           className="fac-serif text-white"
-                          style={{ fontSize: '22px', fontWeight: 400 }}
+                          style={{ fontSize: "20px", fontWeight: 400 }}
                         >
                           {price.price}
                         </span>
-                        <span className="text-white/40 text-[11px]">{price.period}</span>
+                        <span className="text-white/40 text-[11px]">
+                          {price.period}
+                        </span>
                       </div>
-                      
                     </div>
                   ))}
                 </div>
 
-                <div className="h-px bg-white/[0.07] mb-6" />
+                {facility.note && (
+                  <p className="text-orange-400/60 text-[10px] italic mb-4">
+                    * {facility.note}
+                  </p>
+                )}
+
+                <div className="h-px bg-white/[0.07] mb-5" />
 
                 {/* Features */}
-                <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-8">
+                <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-6">
                   {facility.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center gap-2">
                       <div className="w-1 h-1 rounded-full bg-orange-500 flex-shrink-0" />
-                      <span className="text-white/50 text-xs font-light">{feature}</span>
+                      <span className="text-white/50 text-xs font-light">
+                        {feature}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -229,7 +330,7 @@ const Facilities = () => {
                 <motion.button
                   onClick={() => handleWhatsAppClick(facility.whatsappMessage)}
                   className="fac-sans w-full inline-flex items-center justify-between gap-2 bg-orange-500 hover:bg-orange-400 text-white text-[11px] font-medium tracking-[0.18em] uppercase px-6 py-3 transition-all duration-300"
-                  style={{ borderRadius: '2px' }}
+                  style={{ borderRadius: "2px" }}
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -242,7 +343,7 @@ const Facilities = () => {
               <motion.div
                 className="absolute bottom-0 left-0 h-[1px] bg-orange-500"
                 initial={{ width: 0 }}
-                whileHover={{ width: '100%' }}
+                whileHover={{ width: "100%" }}
                 transition={{ duration: 0.3 }}
               />
             </motion.div>
@@ -250,7 +351,7 @@ const Facilities = () => {
         </div>
       </div>
 
-      {/* ── Massive editorial bottom headline ── */}
+      {/* Massive editorial bottom headline */}
       <div className="relative z-10 overflow-hidden pb-32 mt-8">
         <motion.div
           initial={{ y: 100, opacity: 0 }}
@@ -261,9 +362,9 @@ const Facilities = () => {
           <h2
             className="fac-serif text-white leading-none px-5 lg:px-10 select-none"
             style={{
-              fontSize: 'clamp(60px, 11vw, 170px)',
+              fontSize: "clamp(60px, 11vw, 170px)",
               fontWeight: 400,
-              letterSpacing: '0.02em',
+              letterSpacing: "0.02em",
               lineHeight: 0.92,
               opacity: 0.08,
             }}
