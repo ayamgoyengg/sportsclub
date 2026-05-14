@@ -1,42 +1,63 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
 /* ─────────────────────────────────────────
    Shared background elements
 ───────────────────────────────────────── */
-const BG = () => (
-  <>
-    <div
-      className="absolute inset-0 opacity-[0.06] pointer-events-none"
-      style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`,
-      }}
-    />
-    <motion.div
-      className="absolute inset-0 z-0"
-      initial={{ scale: 1.06, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <img
-        src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1400&q=90"
-        alt="Athlete training"
-        className="w-full h-full object-cover object-center"
-        style={{ filter: 'saturate(0.65) brightness(0.9)' }}
+const BG = () => {
+  const [videoFailed, setVideoFailed] = useState(false);
+  return (
+    <>
+      <div
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`,
+        }}
       />
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, transparent 15%, rgba(50,14,0,0.5) 50%, rgba(20,6,0,0.93) 80%)' }} />
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(5,2,0,0.97) 0%, rgba(5,2,0,0.2) 40%, transparent 65%)' }} />
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(15,5,0,0.55) 0%, transparent 20%)' }} />
-    </motion.div>
-    <motion.div
-      className="absolute top-0 bottom-0 z-30 pointer-events-none"
-      style={{ right: 0, width: '3px', background: 'linear-gradient(to bottom, transparent 0%, #f97316 35%, #c2410c 75%, transparent 100%)' }}
-      initial={{ scaleY: 0, originY: '0%' }}
-      animate={{ scaleY: 1 }}
-      transition={{ duration: 1.4, delay: 0.5 }}
-    />
-  </>
-);
+      <motion.div
+        className="absolute inset-0 z-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {videoFailed ? (
+          <img
+            src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1400&q=90"
+            alt="Athlete training"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+            style={{ filter: 'saturate(0.65) brightness(0.9)' }}
+          />
+        ) : (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover object-center"
+            style={{ filter: 'saturate(0.65) brightness(0.9)' }}
+            onError={() => setVideoFailed(true)}
+          >
+            <source
+              src="https://www.pexels.com/download/video/33261218/?fps=25.0&h=720&w=1280"
+              type="video/mp4"
+            />
+          </video>
+        )}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, transparent 15%, rgba(50,14,0,0.5) 50%, rgba(20,6,0,0.93) 80%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(5,2,0,0.97) 0%, rgba(5,2,0,0.2) 40%, transparent 65%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(15,5,0,0.55) 0%, transparent 20%)' }} />
+      </motion.div>
+      <motion.div
+        className="absolute top-0 bottom-0 z-30 pointer-events-none"
+        style={{ right: 0, width: '3px', background: 'linear-gradient(to bottom, transparent 0%, #f97316 35%, #c2410c 75%, transparent 100%)' }}
+        initial={{ scaleY: 0, originY: '0%' }}
+        animate={{ scaleY: 1 }}
+        transition={{ duration: 1.4, delay: 0.5 }}
+      />
+    </>
+  );
+};
 
 /* ─────────────────────────────────────────
    Desktop Hero

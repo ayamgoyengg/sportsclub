@@ -3,7 +3,6 @@ import {
   MapPin,
   Clock,
   Phone,
-  Mail,
   MessageCircle,
   ExternalLink,
 } from "lucide-react";
@@ -24,6 +23,7 @@ const Contact = () => {
         .contact-sans  { font-family: 'Outfit', sans-serif; }
       `}</style>
 
+      {/* Noise texture */}
       <div
         className="absolute inset-0 opacity-[0.06] pointer-events-none"
         style={{
@@ -31,6 +31,7 @@ const Contact = () => {
         }}
       />
 
+      {/* Orange vertical accent line */}
       <div
         className="absolute right-0 top-0 bottom-0 w-[3px] z-30 pointer-events-none"
         style={{
@@ -40,6 +41,8 @@ const Contact = () => {
       />
 
       <div className="relative z-10 pt-24 pb-16 px-5 lg:px-10">
+
+        {/* Section label */}
         <motion.div
           className="contact-sans flex items-center gap-3 mb-10"
           initial={{ opacity: 0, y: 16 }}
@@ -53,6 +56,7 @@ const Contact = () => {
           </span>
         </motion.div>
 
+        {/* Two-column heading */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-20">
           <motion.h2
             className="contact-serif text-white leading-none"
@@ -74,110 +78,103 @@ const Contact = () => {
           </motion.h2>
 
           <motion.div
-            className="contact-sans text-white/80 leading-relaxed"
-            style={{ fontSize: "18px", lineHeight: 1.6 }}
+            className="contact-sans"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <p>
-              Ready to start your fitness journey? Contact us for memberships,
-              facility bookings, and any inquiries about our premium sports club.
-            </p>
+            <div className="flex items-start gap-3">
+              <span className="text-orange-400/60 text-xs mt-1 select-none" style={{ fontFamily: 'monospace' }}>[↓]</span>
+              <p className="text-white/70 text-sm leading-relaxed font-light">
+                Ready to start your fitness journey? Contact us for memberships,
+                facility bookings, and any inquiries about our premium sports club.
+              </p>
+            </div>
+            <div className="h-px bg-white/10 mt-4" />
           </motion.div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
           {/* Contact Information */}
           <motion.div
-            className="space-y-6"
-            initial={{ opacity: 0, x: -50 }}
+            className="space-y-px bg-white/[0.06]"
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-xl hover:bg-white/10 transition-all duration-300">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-orange-500/20 rounded-lg">
-                  <MapPin className="w-6 h-6 text-orange-400" />
-                </div>
-                <div>
-                  <h3 className="contact-sans text-lg font-semibold text-white mb-2">Location</h3>
-                  <p className="contact-sans text-white/70 leading-relaxed">Pondok Tjandra Indah, Sidoarjo</p>
-                </div>
+            {/* Location */}
+            <div className="bg-[#0e0600] hover:bg-white/[0.04] transition-colors duration-300 p-6 flex items-start gap-4">
+              <div className="p-3 bg-orange-500/15 flex-shrink-0">
+                <MapPin className="w-5 h-5 text-orange-400" strokeWidth={1.5} />
+              </div>
+              <div>
+                <h3 className="contact-sans text-sm font-semibold text-white mb-1 tracking-wide">Location</h3>
+                <p className="contact-sans text-white/60 text-sm leading-relaxed">Pondok Tjandra Indah, Sidoarjo</p>
               </div>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-xl hover:bg-white/10 transition-all duration-300">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-orange-500/20 rounded-lg">
-                  <Clock className="w-6 h-6 text-orange-400" />
-                </div>
-                <div>
-                  <h3 className="contact-sans text-lg font-semibold text-white mb-2">Operating Hours</h3>
-                  <p className="contact-sans text-white/70 leading-relaxed">Mon - Fri: 6:00 AM - 9:00 PM</p>
-                  <p className="contact-sans text-white/70 leading-relaxed">Sat - Sun: 6:00 AM - 6:00 PM</p>
-                </div>
+            {/* Hours */}
+            <div className="bg-[#0e0600] hover:bg-white/[0.04] transition-colors duration-300 p-6 flex items-start gap-4">
+              <div className="p-3 bg-orange-500/15 flex-shrink-0">
+                <Clock className="w-5 h-5 text-orange-400" strokeWidth={1.5} />
+              </div>
+              <div>
+                <h3 className="contact-sans text-sm font-semibold text-white mb-1 tracking-wide">Operating Hours</h3>
+                <p className="contact-sans text-white/60 text-sm">Mon – Fri: 6:00 AM – 9:00 PM</p>
+                <p className="contact-sans text-white/60 text-sm">Sat – Sun: 6:00 AM – 6:00 PM</p>
               </div>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-xl hover:bg-white/10 transition-all duration-300">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-orange-500/20 rounded-lg">
-                  <Phone className="w-6 h-6 text-orange-400" />
-                </div>
-                <div>
-                  <h3 className="contact-sans text-lg font-semibold text-white mb-2">Phone</h3>
-                  <p className="contact-sans text-white/70 leading-relaxed">+62 878-9622-2233</p>
-                </div>
+            {/* Phone */}
+            <div className="bg-[#0e0600] hover:bg-white/[0.04] transition-colors duration-300 p-6 flex items-start gap-4">
+              <div className="p-3 bg-orange-500/15 flex-shrink-0">
+                <Phone className="w-5 h-5 text-orange-400" strokeWidth={1.5} />
+              </div>
+              <div>
+                <h3 className="contact-sans text-sm font-semibold text-white mb-1 tracking-wide">Phone</h3>
+                <p className="contact-sans text-white/60 text-sm">+62 878-9622-2233</p>
               </div>
             </div>
 
-            {/* WhatsApp only */}
-            <motion.div
-              className="mt-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
+            {/* WhatsApp CTA */}
+            <motion.a
+              href="https://wa.me/6287896222233?text=Halo%20min,%20saya%20ingin%20bertanya%20mengenai%20informasi%20club"
+              className="contact-sans flex items-center justify-center gap-3 bg-green-600 hover:bg-green-500 text-white text-[11px] font-medium tracking-[0.18em] uppercase px-6 py-4 w-full transition-all duration-300"
+              style={{ borderRadius: '0' }}
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <motion.a
-                href="https://wa.me/6287896222233?text=Halo%20min,%20saya%20ingin%20bertanya%20mengenai%20informasi%20club"
-                className="group w-full flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-green-500/25"
-                whileHover={{ scale: 1.02, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                <span className="contact-sans">WhatsApp</span>
-              </motion.a>
-            </motion.div>
+              <MessageCircle className="w-4 h-4" strokeWidth={1.5} />
+              WhatsApp
+            </motion.a>
           </motion.div>
 
           {/* Map */}
           <motion.div
-            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden relative group"
-            initial={{ opacity: 0, x: 50 }}
+            className="border border-white/[0.08] overflow-hidden"
+            initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-between p-6 pb-4">
-              <h3 className="contact-sans text-xl font-semibold text-white">Find Us</h3>
+            <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.08]">
+              <h3 className="contact-sans text-sm font-semibold text-white tracking-wide">Find Us</h3>
               <motion.a
                 href="https://maps.google.com/maps?q=Pondok+Tjandra+Indah+Sports+Club"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white/80 hover:text-white px-3 py-2 rounded-lg transition-all duration-300 text-sm"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="contact-sans flex items-center gap-2 text-white/40 hover:text-orange-400 text-[10px] font-medium tracking-[0.15em] uppercase transition-colors duration-300"
+                whileHover={{ x: 2 }}
               >
-                <ExternalLink className="w-4 h-4" />
-                <span className="contact-sans">Open in Maps</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+                Open in Maps
               </motion.a>
             </div>
 
-            <div className="relative aspect-video overflow-hidden">
+            <div className="relative" style={{ aspectRatio: '4/3' }}>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.0170277742427!2d112.7845802!3d-7.351983700000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fad3b03da875%3A0x3150cb4591f3e38a!2sPondok%20Tjandra%20Indah%20Sports%20Club!5e0!3m2!1sen!2sid!4v1778433833518!5m2!1sen!2sid"
                 width="100%"
@@ -188,22 +185,36 @@ const Contact = () => {
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Pondok Tjandra Indah Sports Club Location"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
             </div>
 
-            <div className="p-6 pt-4">
-              <div className="flex items-start gap-3">
-                <div className="p-2 bg-orange-500/20 rounded-lg mt-0.5">
-                  <MapPin className="w-4 h-4 text-orange-400" />
-                </div>
-                <div>
-                  <p className="contact-sans text-white font-medium mb-1">Sports Club Pondok Tjandra Indah</p>
-                  <p className="contact-sans text-white/60 text-sm">Pondok Tjandra Indah Complex, Sidoarjo</p>
-                </div>
+            <div className="flex items-start gap-3 px-6 py-4 border-t border-white/[0.08]">
+              <div className="p-2 bg-orange-500/15 flex-shrink-0 mt-0.5">
+                <MapPin className="w-3.5 h-3.5 text-orange-400" strokeWidth={1.5} />
+              </div>
+              <div>
+                <p className="contact-sans text-white text-sm font-medium">Sports Club Pondok Tjandra Indah</p>
+                <p className="contact-sans text-white/50 text-xs mt-0.5">Pondok Tjandra Indah Complex, Sidoarjo</p>
               </div>
             </div>
           </motion.div>
         </div>
+      </div>
+
+      {/* Editorial bottom watermark */}
+      <div className="relative z-10 overflow-hidden pb-32 mt-8">
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true }}
+        >
+          <h2
+            className="contact-serif text-white leading-none px-5 lg:px-10 select-none"
+            style={{ fontSize: 'clamp(60px, 11vw, 170px)', fontWeight: 400, letterSpacing: '0.02em', lineHeight: 0.92, opacity: 0.08 }}
+          >
+            Contact Us
+          </h2>
+        </motion.div>
       </div>
     </section>
   );
