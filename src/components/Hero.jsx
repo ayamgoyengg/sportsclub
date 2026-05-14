@@ -5,7 +5,7 @@ import { ArrowUpRight } from 'lucide-react';
 /* ─────────────────────────────────────────
    Shared background elements
 ───────────────────────────────────────── */
-const BG = () => {
+const BG = ({ videoSrc }) => {
   const [videoFailed, setVideoFailed] = useState(false);
   return (
     <>
@@ -38,10 +38,7 @@ const BG = () => {
             style={{ filter: 'saturate(0.65) brightness(0.9)' }}
             onError={() => setVideoFailed(true)}
           >
-            <source
-              src="https://www.pexels.com/download/video/33261218/?fps=25.0&h=720&w=1280"
-              type="video/mp4"
-            />
+            <source src={videoSrc} type="video/mp4" />
           </video>
         )}
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, transparent 15%, rgba(50,14,0,0.5) 50%, rgba(20,6,0,0.93) 80%)' }} />
@@ -62,13 +59,16 @@ const BG = () => {
 /* ─────────────────────────────────────────
    Desktop Hero
 ───────────────────────────────────────── */
+const DESKTOP_VIDEO = 'https://www.pexels.com/download/video/33261218/?fps=25.0&h=720&w=1280';
+const MOBILE_VIDEO  = 'https://www.pexels.com/download/video/35757586/';
+
 const HeroDesktop = () => (
   <section
     id="home"
     className="relative w-full min-h-screen flex-col overflow-hidden hidden lg:flex"
     style={{ background: 'linear-gradient(160deg, #1a0a00 0%, #3d1500 40%, #7c2d00 100%)' }}
   >
-    <BG />
+    <BG videoSrc={DESKTOP_VIDEO} />
 
     {/* Navbar spacer */}
     <div className="relative z-20 h-24 shrink-0" />
@@ -133,7 +133,7 @@ const HeroMobile = () => (
     className="relative w-full overflow-hidden flex flex-col lg:hidden"
     style={{ height: '100svh', background: 'linear-gradient(160deg, #1a0a00 0%, #3d1500 40%, #7c2d00 100%)' }}
   >
-    <BG />
+    <BG videoSrc={MOBILE_VIDEO} />
 
     {/* Navbar spacer */}
     <div className="relative z-20 h-20 shrink-0" />
